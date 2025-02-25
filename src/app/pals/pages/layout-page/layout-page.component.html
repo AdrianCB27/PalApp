@@ -1,0 +1,33 @@
+<header>
+    <nav class="block w-full max-w-screen-lg px-4 py-2 mx-auto bg-zinc-900 shadow-md rounded-md lg:px-8 lg:py-3 mt-10">
+        <div class="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
+          <a href="/" class="mr-4 block cursor-pointer py-1.5 text-base text-slate-800 font-semibold">
+           <img width="100" src="https://static.wikia.nocookie.net/logopedia/images/8/8c/Palworld.png" alt="">
+          </a>
+       
+          <div class="hidden lg:block">
+            <ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+              <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+                <mat-icon>home</mat-icon>
+                <a href="/" class="flex items-center">
+                    Lista
+                </a>
+              </li>
+              <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+                <mat-icon>add</mat-icon>
+                <a href="/pals/new-pal" class="flex items-center">
+                  Añadir pal
+                </a>
+              </li>
+              <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+                <mat-icon>logout</mat-icon>
+                <a routerLink="/auth/login" (click)="onLogout()" class="flex items-center">
+                  Cerrar sesión
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</header>
+<router-outlet></router-outlet>

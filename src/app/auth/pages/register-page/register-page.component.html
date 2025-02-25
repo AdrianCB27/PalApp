@@ -1,0 +1,48 @@
+
+<form (ngSubmit)="onRegister()" [formGroup]="formularioRegistro">
+  <div class="flex flex-col text-center w-1/3 mx-auto mt-10">
+    <span class="text-4xl mb-5 text-white">Registro</span>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input formControlName="email" type="email" matInput placeholder="Email" />
+    </mat-form-field>
+    <mat-label class="mx-1">
+      <span *ngIf="isValidField('email')" class="text-red-500 mb-4 border rounded p-2 bg-slate-100">El email es requerido y tiene que tener el formato correcto</span>
+    </mat-label>
+
+
+    <mat-form-field class="mt-3">
+      <mat-label>Usuario</mat-label>
+       <input formControlName="user" type="email" matInput placeholder="Usuario" />
+    </mat-form-field >
+    <mat-label>
+      <span *ngIf="isValidField('user')" class="text-red-500 mb-4 border rounded p-2 bg-slate-100">El usuario es requerido</span>
+    </mat-label>
+
+
+    <mat-form-field class="mt-3">
+      <mat-label>Contraseña</mat-label>
+      <input formControlName="pass1" type="password" matInput placeholder="Contraseña" />
+    </mat-form-field>
+    <mat-label>
+      <span *ngIf="isValidField('pass1')" class="text-red-500 mb-4 border rounded p-2 bg-slate-100">La contraseña tiene que tener al menos 8 caracteres</span>
+    </mat-label>
+
+
+    <mat-form-field class="mt-3">
+      <mat-label>Confirmar la contraseña</mat-label>
+      <input formControlName="pass2" type="password" matInput placeholder="Contraseña" />
+    </mat-form-field>
+    <mat-label>
+      <span *ngIf="isValidField('pass2')" class="text-red-500 mb-4 border rounded p-2 bg-slate-100">Las contraseñas tienen que ser iguales</span>
+    </mat-label>
+
+    <button (click)="onRegister()" type="button" class="mt-4" mat-fab extended>
+      <mat-icon>start</mat-icon>
+      Registrarse
+    </button>
+    <div class="flex justify-content-end mt-5">
+      <a class="text-blue-500 hover:underline" routerLink="/auth/login">¿Ya tienes cuenta?</a>
+    </div>
+  </div>
+</form>

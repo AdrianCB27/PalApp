@@ -1,0 +1,67 @@
+<div class="flex justify-center mx-auto mt-6">
+    <span class="text-slate-100 text-5xl font-extrabold text-center my-6 shadow-lg">
+  Editar a {{currentPal?.name}}
+  </span>
+  </div>
+  <div class="flex justify-center mx-auto p-6">
+    <div class="grid grid-cols-2 gap-6 w-full max-w-4xl">
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+          
+          <mat-form-field class="w-full">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name" placeholder="Ingrese el nombre" />
+          </mat-form-field>
+    
+          <mat-form-field class="w-full">
+            <mat-label>Imagen</mat-label>
+            <input matInput formControlName="image" placeholder="Ingrese la url de la imagen" />
+          </mat-form-field>
+      
+          <mat-form-field class="w-full">
+            <mat-label>Tipo</mat-label>
+            <mat-select formControlName="type">
+              <mat-option value="">--- Selecciona un tipo ---</mat-option>
+              <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <mat-form-field class="w-full">
+            <mat-label>Habilidad</mat-label>
+            <input matInput formControlName="abilities" placeholder="Ingrese una habilidad" />
+          </mat-form-field>
+      
+          <mat-form-field class="w-full">
+            <mat-label>Truco de entrenador</mat-label>
+            <input matInput formControlName="trainerTips" placeholder="Ingrese un truco" />
+          </mat-form-field>
+      
+          <button mat-raised-button color="primary" type="submit" class="w-full mt-2">
+            Enviar
+          </button>
+      
+        </form>
+      </div>
+      
+        <mat-card class="example-card" appearance="outlined">
+            <mat-card-header class="bg-cyan-100">
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{currentPal?.name}}</mat-card-title>
+              <mat-card-subtitle>Tipo: {{currentPal!.type|traducir}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{currentPal?.image}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p class="p-1 text-xl">
+                <strong>Habilidades:</strong> {{currentPal?.abilities}}
+              </p>
+              <p class="p1 text-xl">
+                <strong>Trucos de entrenador:</strong> {{currentPal?.trainerTips}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+    </div>
+  </div>
+  
+    
+    
+  
