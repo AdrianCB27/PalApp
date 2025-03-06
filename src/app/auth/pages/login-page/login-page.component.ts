@@ -23,7 +23,7 @@ public onLogin() {
   const valorPass = this.pass.nativeElement.value;
 
   Swal.fire({
-    title: 'Cargando...',
+    title: 'Iniciando sesión...',
     text: 'Por favor, espere.',
     allowOutsideClick: false,
     didOpen: () => {
