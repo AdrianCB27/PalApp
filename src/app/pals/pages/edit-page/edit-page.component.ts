@@ -17,8 +17,7 @@ export class EditPageComponent implements OnInit{
   public updatedPal?:Pal;
 
   public form!:FormGroup
-  constructor(private palsService:PalsService,private fb: FormBuilder, private activatedRoute: ActivatedRoute,private snackbar: MatSnackBar
-  ) {}
+  constructor(private palsService:PalsService,private fb: FormBuilder, private activatedRoute: ActivatedRoute,private snackbar: MatSnackBar){}
   
   ngOnInit(): void {
       this.form=this.fb.group({

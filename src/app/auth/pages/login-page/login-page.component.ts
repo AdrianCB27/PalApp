@@ -18,29 +18,39 @@ export class LoginPageComponent {
 constructor(private authService:AuthService, private router:Router) {
   
 }
-public onLogin(){
+public onLogin() {
   const valorUser = this.user.nativeElement.value;
   const valorPass = this.pass.nativeElement.value;
 
-  this.authService.login(valorUser,valorPass).subscribe((user)=>{
-    if(user){
+  Swal.fire({
+    title: 'Cargando...',
+    text: 'Por favor, espere.',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
+  this.authService.login(valorUser, valorPass).subscribe((user) => {
+    Swal.close();
+    if (user) {
       console.log(user);
-      this.currentUser=user;
-      this.router.navigate(['/'])
-    }else{
+      this.currentUser = user;
+      this.router.navigate(['/']);
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Usuario o contraseña incorrectos',
-        confirmButtonColor: '#f5cf3d', 
+        confirmButtonColor: '#f5cf3d',
         customClass: {
-          popup: 'animated tada' 
+          popup: 'animated tada'
         }
-      })
-  }
+      });
+    }
+  });
 
-  })
-  this.user.nativeElement.value="";
-  this.pass.nativeElement.value="";
+  this.user.nativeElement.value = "";
+  this.pass.nativeElement.value = "";
 }
 }
